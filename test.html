@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="jquery.fieldselection.js"></script>
+		<script type="text/javascript" src="jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="jquery.smart-calendar.js"></script>
+		<title>Untitled Document</title>
+		<script type="text/javascript">
+			$(function(){
+				var $date = $('#date').smartCalendar({
+					format : 'yyyy年MM月dd日 HH:mm:ss=====',
+					max : {
+						caculate : function(){
+							return $('#date2').smartCalendar('getTime');
+						}
+					}
+				});
+				var $date = $('#date2').smartCalendar({
+					format : 'yyyy年MM月dd日 HH:mm:ss=====',
+					min : {
+						caculate : function(){
+							return $('#date').smartCalendar('getTime');
+						}
+					}
+				});
+				$('#now').click(function(){
+					$('#date').smartCalendar('setTime', new Date());
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<input id='date' style='width:300px; cursor:pointer' autocomplete='off'><span id='now'>现在</span>
+		<input id='date2' style='width:300px' autocomplete='off'>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	</body>
+</html>
