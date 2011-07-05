@@ -608,10 +608,15 @@
 
 			this.each(function(){
 				var $this = $(this);
-				// 使用value或者当前时间
-				var time = new Date(), value = $this.attr('time');
-				if (!!value) {
-					time = new Date(parseInt(value));
+				// 使用options.time||value||new Date
+				var time = options.time;
+				if (!time) {
+					var value = $this.attr('time');
+					if (!!value) {
+						time = new Date(parseInt(value));
+					} else {
+						time = new Date();
+					}
 				}
 				$this.data('calendar', new SmartCalendar($(this), time, options));
 			})
