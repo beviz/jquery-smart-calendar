@@ -66,6 +66,14 @@
 	
 	// 默认设置	
 	var defaults = {
+		step : {
+			year : 1,
+			month : 1,
+			day : 1,
+			hour24 : 1,
+			minute : 1,
+			second : 1
+		}, 
 		format : 'yyyy/MM/dd HH:mm:ss',
 		// 最小日期
 		min : {
@@ -152,6 +160,7 @@
 				delete thiz.globalMousewheel;
 			}).mousewheel(function(){
 				thiz.mousewheel.apply(thiz, arguments);
+				return false;
 			}).keydown(function(){
 				return thiz.keydown.apply(thiz, arguments);
 			}).keyup(function(e){
@@ -203,7 +212,7 @@
 		 * @param {Object} delta
 		 */
 		mousewheel : function(event, delta){
-			this.caculateTime(delta);
+			this.caculateTime(delta * this.options.step[this.pointer]);
 		},
 		
 		/**
@@ -404,9 +413,9 @@
 					this.refreshInput(e.keyCode == 37 ? -1 : 1);
 					return false;
 				case 38 : // Up
-					return this.caculateTime(+1) || false;
+					return this.caculateTime(+1 * this.options.step[this.pointer]) || false;
 				case 40 : // down
-					return this.caculateTime(-1) || false;
+					return this.caculateTime(-1 * this.options.step[this.pointer]) || false;
 				default: {
 					var num = getCodeNumber(e.keyCode);
 					if(!isNaN(num)) {
