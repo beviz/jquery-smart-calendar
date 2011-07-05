@@ -26,7 +26,7 @@
 					}
 				});
 				$('#now').click(function(){
-					$('#date').smartCalendar('setTime', new Date());
+					$('#time').smartCalendar('setTime', new Date());
 				});
 				$('#time').smartCalendar({
 				    format : 'HH:mm:ss',
@@ -52,9 +52,8 @@
         }
     }
 });</pre>
-<p><a id='now' href="javascript:">Set start to now</a></p>
 <h3><a name="Only_time_:"></a>Only time :</h3>
-<input id='time' style='width:300px; cursor:pointer' autocomplete='off'>
+<input id='time' style='width:300px; cursor:pointer' autocomplete='off'> <a id='now' href="javascript:">now</a>
 <pre>$('#time').smartCalendar({
     format : 'HH:mm:ss',
 	time : new Date(2011, 2, 20, 14, 0, 0),
