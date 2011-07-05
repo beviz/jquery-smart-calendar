@@ -30,6 +30,7 @@
 				});
 				$('#time').smartCalendar({
 				    format : 'HH:mm:ss',
+					time : new Date(2011, 2, 20, 14, 0, 0),
 					step : {
 						second : 5
 					}
@@ -42,6 +43,7 @@
 	<h3>A jQuery date and time plugin which support mouse-wheel and keyboard control</h3>
 
 <h3><a name="Demo_Code_:"></a>Demo Code :</h3>
+<p> From <input id='date' style='width:300px; cursor:pointer' autocomplete='off'> To <input id='date2' style='width:300px' autocomplete='off'></p>
 <pre>$('#date').smartCalendar({
     format : 'yyyy/MM/dd HH:mm:ss',
     max : {
@@ -50,16 +52,16 @@
         }
     }
 });</pre>
-<p> From <input id='date' style='width:300px; cursor:pointer' autocomplete='off'> To <input id='date2' style='width:300px' autocomplete='off'></p>
 <p><a id='now' href="javascript:">Set start to now</a></p>
 <h3><a name="Only_time_:"></a>Only time :</h3>
+<input id='time' style='width:300px; cursor:pointer' autocomplete='off'>
 <pre>$('#time').smartCalendar({
     format : 'HH:mm:ss',
+	time : new Date(2011, 2, 20, 14, 0, 0),
 	step : {
 		second : 5
 	}
 });</pre>
-<input id='time' style='width:300px; cursor:pointer' autocomplete='off'>
 <h3><a name="Demo:"></a>Demo:</h3>
 <a rel="nofollow" href="http://code.google.com/p/jquery-smart-calendar/source/browse/trunk/test.html">http://code.google.com/p/jquery-smart-calendar/source/browse/trunk/test.html</a>
 <h3><a name="Download"></a>Download</h3>
